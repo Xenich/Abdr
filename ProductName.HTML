@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" /> 
+		<link rel = "stylesheet" href="css/styles.css">
+		<title>Наименование товара</title>
+						<script>
+							var countOfFields = 0;
+							var index=0;
+							var divs = new Map();
+
+							function clickplus()
+							{
+								if (countOfFields <3) 
+								{	
+									countOfFields++;	
+									index++;	
+									var div = document.createElement("div");
+									divs[index]=div;
+									div.className="container"+countOfFields;
+									div.innerHTML="\
+										<div class=\"inlineBlocks\"> \
+											<label for=\"moreThen\">Если заказ более</label> \
+											<input style=\"max-width: 50px;\" type=\"text\" name=\"discount\" id=\"quant\">	\
+										</div>\
+										<div class=\"inlineBlocks\"> \
+											<label for=\"discount\">то скидка</label> 	\
+											<input style=\"max-width: 50px;\" type=\"text\" name=\"discount\" id=\"discount\">	\
+										</div> \
+										<div class=\"inlineBlocks\"> \
+											<label class=\"plusminus\" onclick=\"clickplus()\">+</label>	\
+											<label class=\"plusminus\" onclick=\"clickminus("+index+")\">-</label> \
+											<label style=\"margin-left: 15px;\">Можно добавить максимум три скидки</label> \
+										</div>";
+									document.getElementById("spetialPrices").appendChild(div);
+									return false;
+								}
+							}
+							function clickminus(index)
+							{
+								if (countOfFields>1)
+								{									
+									divs[index].parentNode.removeChild(divs[index]);
+									delete divs[index];
+									countOfFields--;
+								}
+							}				
+						</script>	
+
+	</head>
+	<body>
+		<div id="ProviderName">Наименование поставщика</div>
+		<div id="warehouse">
+			<div class="links" id="left">
+				Склад 1
+			</div>
+			<div id="right">
+				<ul class="links">
+					<li class="rightLink"><a href="/stop">Приостановить</a></li>
+					<li class="rightLink"><a href="/addWarehouse">Добавить склад</a></li>
+					<li class="rightLink"><a href="/delete">Удалить</a></li>			
+				</ul>
+			</div>
+		</div>
+			<br/>
+		<div class="info">
+			<label for="warehouseName" >Наименование склада</label><br>
+			<input type="text" class="full" readonly="readonly" name="warehouseName"><br>
+			<label for="warehouseAddress">Aдрес склада</label><br>
+			<input type="text" class="full" readonly="readonly" name="warehouseAddress"><br>
+
+			<label for="availability">В наличии на складе</label><br>
+			<div class="container">
+				<div class="inlineBlocks">
+					<input type="text" name="availability" id="availability" >
+				</div>
+				<div class="inlineBlocks">
+					<input  type="checkbox"  name="self" id="self">
+					<label for="self" >Самовывоз</label>
+				</div>
+				<div class="inlineBlocks">
+					<input type="checkbox" name="byCity" id="byCity">
+					<label for="byCity" >Доставка по городу</label>
+				</div>
+				<div class="inlineBlocks">
+					<input type="checkbox"  name="regions" id="regions">
+					<label for="regions" >Доставка в другие регионы</label><br>
+				</div>
+			</div>
+
+			<label for="price">Цена товара</label><br>
+			<input type="text" class="full" name="price"><br>
+			<label>Специальные цены</label><br>
+			<div id="spetialPrices">				
+				<script  type="text/javascript">clickplus();</script>				
+			</div>			
+		</div>
+		<hr class="info" size="2" color="#000000"  align="left" />
+	</body>
+</html>
+
