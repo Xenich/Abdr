@@ -58,7 +58,8 @@ input{
 
 #availability{
 	width: 20%;
-	min-width: 50px;
+	min-width: 100px;
+	max-width: 200;
 }
 
 .container{

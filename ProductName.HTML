@@ -22,11 +22,11 @@
 									div.innerHTML="\
 										<div class=\"inlineBlocks\"> \
 											<label for=\"moreThen\">Если заказ более</label> \
-											<input style=\"max-width: 50px;\" type=\"text\" name=\"discount\" id=\"quant\">	\
+											<input style=\"max-width: 50px;\" type=\"number\" name=\"discount\" id=\"quant\">	\
 										</div>\
 										<div class=\"inlineBlocks\"> \
 											<label for=\"discount\">то скидка</label> 	\
-											<input style=\"max-width: 50px;\" type=\"text\" name=\"discount\" id=\"discount\">	\
+											<input style=\"max-width: 50px;\" type=\"number\" name=\"discount\" id=\"discount\">	\
 										</div> \
 										<div class=\"inlineBlocks\"> \
 											<label class=\"plusminus\" onclick=\"clickplus()\">+</label>	\
@@ -73,7 +73,7 @@
 			<label for="availability">В наличии на складе</label><br>
 			<div class="container">
 				<div class="inlineBlocks">
-					<input type="text" name="availability" id="availability" >
+					<input type="number" name="availability" id="availability" >
 				</div>
 				<div class="inlineBlocks">
 					<input  type="checkbox"  name="self" id="self">
@@ -90,7 +90,7 @@
 			</div>
 
 			<label for="price">Цена товара</label><br>
-			<input type="text" class="full" name="price"><br>
+			<input type="number" class="full" name="price"><br>
 			<label>Специальные цены</label><br>
 			<div id="spetialPrices">				
 				<script  type="text/javascript">clickplus();</script>				
